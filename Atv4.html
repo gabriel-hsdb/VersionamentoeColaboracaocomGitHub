@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Juros Simples</title>
+    <style>
+        body { font-family: sans-serif;
+             padding: 20px;
+              line-height: 1.6;
+              background-color: #f4f4f4;
+            }
+        .painel {
+                background-color: white;
+                padding: 20px;
+                width: 300px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+             }
+        input { width: 94%;
+              padding: 8px;
+              margin: 10px 0;
+              border-radius: 10px;
+              border: 1px solid #000;
+             }
+             button {
+                width: 100%;
+             padding: 10px;
+             cursor: pointer;
+             background-color: #4CAF50;
+             color: white;
+             border-radius: 10px;
+             border: none;
+             }
+        h3 {
+                text-align: center;
+             }
+    </style>
+</head>
+<body>
+
+    <div class="painel">
+        <h3>Empréstimo de R$ 1.000</h3>
+        <p>Taxa: 5% ao mês</p>
+
+        <label>Quantos meses?</label>
+        <input type="number" id="campoMeses">
+        
+        <button onclick="calcular()">Calcular Total</button>
+
+        <hr>
+        <div id="resultado">
+            </div>
+    </div>
+
+    <script>
+        function calcular() {
+            var capital = 1000;
+            var taxa = 0.05; 
+            var meses = document.getElementById('campoMeses').value;
+
+            var totalJuros = capital * taxa * meses;
+
+           
+            var valorFinal = capital + totalJuros;
+
+            var divResultado = document.getElementById('resultado');
+            
+            divResultado.innerHTML = "<h4>Resultado:</h4>" +
+                                     "Juros: R$ " + totalJuros + "<br>" +
+                                     "Total a pagar: R$ " + valorFinal;
+        }
+    </script>
+
+</body>
+</html>
