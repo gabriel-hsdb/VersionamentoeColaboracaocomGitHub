@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 7</title>
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .form {
+            width: 400px;
+            height: 600px;
+            border-radius: 10px;
+            align-items: center;
+            text-align: center;
+            align-content: center;
+            align-items: center;
+            border: 2px solid;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        #input {
+            width: 250px;
+            height: 100px;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        #botao {
+            width: 250px;
+            height: 75px;
+            font-size: 40px;
+            border-radius: 10px;
+            border: 2px solid;
+            cursor: pointer;
+            background-color: #4caf50;
+        }
+
+        #restante {
+            height: 75px;
+            width: 250px;
+            border-radius: 10px;
+            margin: auto;
+            font-size: 30px;
+            text-align: center;
+            align-content: center;
+            border: 2px solid;
+        }
+
+        #vendida {
+            height: 75px;
+            width: 250px;
+            border-radius: 10px;
+            margin: auto;
+            font-size: 30px;
+            text-align: center;
+            align-content: center;
+            border: 2px solid;
+        }
+
+        input:focus,
+            textarea:focus {
+            outline: none;
+        }
+
+        #estoque {
+            width: 250px;
+            height: 40px;
+            margin: auto;
+            font-size: 30px;
+            text-align: center;
+            align-content: center;
+            border-radius: 10px;
+            border: 2px solid;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container form">
+
+        <input type="number" id="input" placeholder="Digite a quantidade vendida" required>
+        <br><br>
+        <button type="submit" id="botao" onclick="enviar()">Enviar</button>
+        <br><br>
+        <div id="estoque">
+            Estoque Inicial: <span id="estoqueInicial">120</span>
+        </div>
+        <br>
+        <div id="restante"> <!--max 5 digitos-->
+            Restante: 120
+        </div>
+        <br>
+        <div id="vendida">
+            Quantidade vendida: <br>0
+        </div>
+
+    </div>
+    
+    <script>
+
+        const input = document.getElementById("input"); // qtd produtos vendidos no dia
+        const botao = document.getElementById('botao'); // botao enviar
+        const restante = document.getElementById('restante');
+
+        var estoqueInicial = 120;
+
+        botao.addEventListener('click', () => {
+            const valor = input.value;
+            restante.innerText = `Restante: ${estoqueInicial - valor}`;
+
+            vendida.innerText = `Quantidade vendida: ${input.value}`;
+        });
+
+
+    </script>
+</body>
+</html>
