@@ -2,13 +2,13 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Descontos</title>
+<title>Compra de Cadernos</title>
 
 <style>
 
 body{
     font-family: Arial, sans-serif;
-    background:#f4f4f4;
+    background:#f3f3f3;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -20,8 +20,8 @@ body{
     padding:30px;
     border-radius:10px;
     width:320px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
     text-align:center;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
 input{
@@ -34,15 +34,15 @@ input{
 button{
     width:100%;
     padding:10px;
-    border:none;
     background:#4caf50;
+    border:none;
     color:white;
     border-radius:5px;
     cursor:pointer;
 }
 
 button:hover{
-    background:#00ad34;
+    background:#00a136;
 }
 
 .resultado{
@@ -57,39 +57,35 @@ button:hover{
 
 <div class="container">
 
-<h2>Desconto de Produto</h2>
+<h2>Compra de Cadernos</h2>
 
-<label>Preço total dos produtos:</label>
-<input type="number" id="preco" placeholder="Digite o preço">
+<label>Quantidade de cadernos:</label>
+<input type="number" id="quantidade" placeholder="Digite a quantidade">
 
-<button onclick="calcularDesconto()">Calcular</button>
+<button onclick="calcularCompra()">Calcular Total</button>
 
 <div class="resultado">
-<p id="desconto"></p>
-<p id="precoFinal"></p>
-<p id="economia"></p>
+<p id="mensagem"></p>
+<p id="total"></p>
 </div>
 
 </div>
 
 <script>
 
-function calcularDesconto(){
+function calcularCompra(){
 
-    let precoOriginal = document.getElementById("preco").value;
+let precoUnitario = 12.50;
 
-    let desconto = precoOriginal * 0.10;
+let quantidade = document.getElementById("quantidade").value;
 
-    let precoFinal = precoOriginal - desconto;
+let total = quantidade * precoUnitario;
 
-    document.getElementById("desconto").innerText =
-    "Valor do desconto: R$ " + desconto.toFixed(2);
+document.getElementById("mensagem").innerText =
+"Você comprou " + quantidade + " caderno(s). Preço unitário: R$ " + precoUnitario.toFixed(2);
 
-    document.getElementById("precoFinal").innerText =
-    "Preço final: R$ " + precoFinal.toFixed(2);
-
-    document.getElementById("economia").innerText =
-    "Você economizou: R$ " + desconto.toFixed(2);
+document.getElementById("total").innerText =
+"Valor total da compra: R$ " + total.toFixed(2);
 
 }
 
