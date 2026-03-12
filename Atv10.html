@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora de Juros Compostos</title>
+<style>
+    body { font-family: sans-serif;
+             padding: 20px;
+              line-height: 1.6;
+              background-color: #f4f4f4;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+        .container {
+                background-color: white;
+                padding: 20px;
+                width: 300px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                
+
+             }
+        input { width: 94%;
+              padding: 8px;
+              margin: 10px 0;
+              border-radius: 10px;
+              border: 1px solid #000;
+             }
+        button {
+                width: 100%;
+             padding: 10px;
+             cursor: pointer;
+             background-color: #4CAF50;
+             color: white;
+             border-radius: 10px;
+             border: none;
+             }
+        h2 {
+             text-align: center;
+             }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Juros Compostos</h2>
+
+<label>Valor inicial (R$)</label>
+<input type="number" id="valorInicial" placeholder="Digite o valor">
+
+<label>Número de meses</label>
+<input type="number" id="meses" placeholder="Digite os meses">
+
+<button onclick="calcular()">Calcular</button>
+
+<div class="resultado">
+<p id="resultadoInicial"></p>
+<p id="resultadoMeses"></p>
+<p id="resultadoFinal"></p>
+<p id="resultadoJuros"></p>
+</div>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let valorInicial = parseFloat(document.getElementById("valorInicial").value);
+let meses = parseInt(document.getElementById("meses").value);
+
+let taxa = 0.02;
+
+let valorFinal = valorInicial * Math.pow((1 + taxa), meses);
+
+let juros = valorFinal - valorInicial;
+
+document.getElementById("resultadoInicial").innerText =
+"Valor inicial: R$ " + valorInicial.toFixed(2);
+
+document.getElementById("resultadoMeses").innerText =
+"Tempo de investimento: " + meses + " meses";
+
+document.getElementById("resultadoFinal").innerText =
+"Valor final: R$ " + valorFinal.toFixed(2);
+
+document.getElementById("resultadoJuros").innerText =
+"Total de juros ganhos: R$ " + juros.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
