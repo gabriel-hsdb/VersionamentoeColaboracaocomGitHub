@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Média de Vendas Semanais</title>
+    <style>
+        body { font-family: sans-serif;
+             padding: 20px;
+              line-height: 1.6;
+              background-color: #f4f4f4;
+            }
+        .painel {
+                background-color: white;
+                padding: 20px;
+                width: 300px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+             }
+        input { width: 94%;
+              padding: 8px;
+              margin: 10px 0;
+              border-radius: 10px;
+              border: 1px solid #000;
+             }
+        button {
+                width: 100%;
+             padding: 10px;
+             cursor: pointer;
+             background-color: #4CAF50;
+             color: white;
+             border-radius: 10px;
+             border: none;
+             }
+        h3 {
+             text-align: center;
+             }
+    </style>
+</head>
+<body>
+
+<div class="painel">
+    <h3>Vendas da Semana</h3>
+    <p>Insira os valores de venda de cada dia:</p>
+    
+    <div class="dia-input">Segunda: <input type="number" class="venda-dia" value="0"></div>
+    <div class="dia-input">Terça:   <input type="number" class="venda-dia" value="0"></div>
+    <div class="dia-input">Quarta:  <input type="number" class="venda-dia" value="0"></div>
+    <div class="dia-input">Quinta:  <input type="number" class="venda-dia" value="0"></div>
+    <div class="dia-input">Sexta:   <input type="number" class="venda-dia" value="0"></div>
+    <div class="dia-input">Sábado:  <input type="number" class="venda-dia" value="0"></div>
+    <div class="dia-input">Domingo: <input type="number" class="venda-dia" value="0"></div>
+
+    <button onclick="analisarVendas()">Calcular</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+    function analisarVendas() {
+
+        var campos = document.getElementsByClassName('venda-dia');
+        var totalSoma = 0;
+        var maiorVenda = 0;
+
+
+        for (var i = 0; i < campos.length; i++) {
+            var valorDia = parseFloat(campos[i].value);
+            
+
+            totalSoma = totalSoma + valorDia;
+
+
+            if (valorDia > maiorVenda) {
+                maiorVenda = valorDia;
+            }
+        }
+
+        var media = totalSoma / 7;
+
+
+        document.getElementById('resultado').innerHTML = 
+            "<strong>Total da Semana:</strong> R$ " + totalSoma.toFixed(2) + "<br>" +
+            "<strong>Média Diária:</strong> R$ " + media.toFixed(2) + "<br>" +
+            "<strong>Maior Venda:</strong> R$ " + maiorVenda.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
